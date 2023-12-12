@@ -1,8 +1,7 @@
-package main
+package hangmaam
 
 import (
 	"bufio"
-	"classic/hangm"
 	"fmt"
 	"math/rand"
 	"os"
@@ -53,13 +52,13 @@ func main() {
 	}
 	choose := ""
 	// On crée notre mot avec quelques lettres d'afficher
-	randomwordhide := hangm.CreateWord(randomword)
+	randomwordhide := CreateWord(randomword)
 	// On déclare nos variables qui vont servir à l'avancée de notre jeu
 	state := ""
 	essaie := 10
 	usedletter := []string{}
 	// On clear le terminal
-	hangm.Clear()
+	Clear()
 	// On affiche l'état de la partie
 	fmt.Printf("La partie commence, tu possèdes actuellement %v essais !\n", essaie)
 	fmt.Println(randomwordhide)
@@ -69,9 +68,9 @@ func main() {
 		fmt.Print("Choose: ")
 		fmt.Scanln(&choose)
 		// On vérifie si ce qu'il a marqué est valide
-		randomwordhide, state = hangm.IsInputOk(choose, randomword, randomwordhide, &usedletter)
+		randomwordhide, state = IsInputOk(choose, randomword, randomwordhide, &usedletter)
 		// On clear le terminal
-		hangm.Clear()
+		Clear()
 		// Si le joueur a déjà fait une erreur
 		if essaie != 10 {
 			// On affiche l'état du pendu
@@ -116,7 +115,7 @@ func main() {
 		// Si le joueur n'a plus d'essais
 		if essaie <= 0 {
 			// On clear le terminal
-			hangm.Clear()
+			Clear()
 			// On affiche l'état de la partie
 			fmt.Print(hang[9])
 			fmt.Printf("Tu as perdu, le mot était : %v", randomword)
@@ -127,7 +126,7 @@ func main() {
 		// Si le mot a été totalement découvert
 		if randomwordhide == randomword {
 			// On clear le terminal
-			hangm.Clear()
+			Clear()
 			// On affiche le message correspondant
 			fmt.Printf("Tu as trouvé, il te restait %v essai(s), le mot est : %v", essaie, randomword)
 			// On arrête le programme

@@ -1,4 +1,4 @@
-package hangm
+package hangmaam
 
 import "math/rand"
 

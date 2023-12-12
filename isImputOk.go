@@ -1,4 +1,4 @@
-package hangm
+package hangmaam
 
 // Fonction qui va vérifier si le mot ou la lettre est valide
 func IsInputOk(letter, randomword, wordtofind string, usedletter *[]string) (string, string) {
