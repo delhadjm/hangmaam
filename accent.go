@@ -1,4 +1,4 @@
-package hangmaam
+package main
 
 import "strings"
 
